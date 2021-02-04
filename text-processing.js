@@ -89,3 +89,26 @@ const displayResult = result => {
     // Setting the result text
     resultElement.textContent = resultText;
   };   
+
+const handleEmptyComment = () => {
+    const resultBlockElement = 
+document.getElementById('main-result-block');
+    resultBlockElement.classList.add('invisible');
+    return alert('Your comment is empty =(');
+};
+
+//Button Click Handler 
+const onAnalyzeButtonClick = () => {
+
+    const commentElement = 
+document.getElementById('comment');
+    const commentText = commentElement.nodeValue.trim();
+
+// empty comments handles 
+
+if (!commentText) {
+    return handleEmptyComment();
+}
+//Calling the API and passingthe result of the function 
+    return analyzeComment(commentText, displayResult);
+}
