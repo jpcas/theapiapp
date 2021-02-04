@@ -6,7 +6,7 @@ const API_URL = 'https://japerk-text-processing.p.rapidapi.com/sentiment/';
 const REQUEST_HEADERS = {
     'X-RapidAPI-Host': 'japerk-text-processing.p.rapidapi.com'
 , 'X-RapidApi-Key':
-'7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+'',
     'Content-Type': 'application/x-www-form-urlencoded'
 };
 
@@ -102,7 +102,7 @@ const onAnalyzeButtonClick = () => {
 
     const commentElement = 
 document.getElementById('comment');
-    const commentText = commentElement.nodeValue.trim();
+    const commentText = commentElement.value.trim();
 
 // empty comments handles 
 
@@ -111,4 +111,4 @@ if (!commentText) {
 }
 //Calling the API and passingthe result of the function 
     return analyzeComment(commentText, displayResult);
-}
+};
