@@ -31,4 +31,61 @@ Axios.post(API_URL, formattedData, { headers: REQUEST_HEADERS })
     .catch(error => console.error(error))
 };
 
-    
+const displayResult = result => {
+    const resultBlockElement = 
+document.getElementById('main-result-block');
+    resultBlockElement.classList.remove('invisible');
+
+    const label = result.label;
+    const  resultElement = 
+document.getElementById('result');
+    resultElement.setAttribute('class', label);
+    let resultText = '';
+
+
+//Results using swtich case 
+switch (label) {
+    case 'pos':
+        resultText = 'Wow! Your comment is very postive!';
+        break;
+    case 'neg':
+        restultText = 'Negative comment :(';
+        break;
+    case 'neutral':
+        resultText = 'simple comment =)'
+        break;
+    default:
+        resultText = 'Hmmmm, cant understand your comment';
+};
+
+///results 
+    resultElement.textContent = resultText;
+
+};
+
+const displayResult = result => {
+    // Remove invisible class for main-result-block
+    const resultBlockElement = document.getElementById('main-result-block');
+    resultBlockElement.classList.remove('invisible');
+    // Setting the color of the result text depending on the response label
+    const label = result.label;
+    const resultElement = document.getElementById('result');
+    resultElement.setAttribute('class', label);
+    let resultText = '';
+    // Choosing the result text depending on response label
+    switch (label) {
+        case 'pos':
+            resultText = 'Wow! Your comment is very positive!';
+            break;
+        case 'neg':
+            resultText = 'Negative comment =(';
+            break;
+        case 'neutral':
+            resultText = 'Simple comment =)';
+            break;
+        default:
+            resultText = 'Hmmm, dont understnad';
+    }
+    // Setting the result text
+    resultElement.textContent = resultText;
+  };   
